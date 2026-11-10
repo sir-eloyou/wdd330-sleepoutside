@@ -1,4 +1,4 @@
-import { getParam } from "./utils.mjs";
+import { getParam, loadHeaderFooter } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 
@@ -9,6 +9,7 @@ const productID = getParam("product");
 const product = new ProductDetails(productID, dataSource);
 product.init();
 
+loadHeaderFooter();
 // // add to cart button event handler
 // async function addToCartHandler(e) {
 //   const product = await dataSource.findProductById(e.target.dataset.id);

@@ -1,4 +1,5 @@
 import products from "../json/tents.json";
+import { loadHeaderFooter } from "./utils.mjs";
 
 function displayDiscounts() {
     const productCards = document.querySelectorAll(".product-card");
@@ -25,3 +26,4 @@ function displayDiscounts() {
 }
 
 displayDiscounts();
+loadHeaderFooter();
