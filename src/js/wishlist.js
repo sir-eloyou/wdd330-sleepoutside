@@ -1,4 +1,8 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import {
+  getLocalStorage,
+  setLocalStorage,
+  loadHeaderFooter,
+} from "./utils.mjs";
 
 function getWishlist() {
   return getLocalStorage("so-wishlist") || [];
@@ -18,6 +22,7 @@ function renderWishlist() {
   document.querySelectorAll(".wishlist-remove").forEach((btn) => {
     btn.addEventListener("click", removeItem);
   });
+
   document.querySelectorAll(".wishlist-to-cart").forEach((btn) => {
     btn.addEventListener("click", moveToCart);
   });
@@ -57,3 +62,4 @@ function moveToCart(e) {
 }
 
 renderWishlist();
+loadHeaderFooter();
