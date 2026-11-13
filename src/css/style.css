@@ -299,3 +299,38 @@ footer {
   font-weight: bold;
   margin: 8px;
 }
+
+/* Shop by Category */
+.categories {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 1.5rem auto;
+}
+
+.category-list a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.category-list img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.category-list h3 {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .category-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
