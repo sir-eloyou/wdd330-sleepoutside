@@ -73,27 +73,33 @@ export default class CheckoutProcess {
     }
 
     async checkout(form) {
-        const formData = new FormData(form);
+        try {
+            const formData = new FormData(form);
 
-        const order = {
-            orderDate: new Date().toISOString(),
-            fname: formData.get("fname"),
-            lname: formData.get("lname"),
-            street: formData.get("street"),
-            city: formData.get("city"),
-            state: formData.get("state"),
-            zip: formData.get("zip"),
-            cardNumber: formData.get("cardNumber"),
-            expiration: formData.get("expiration"),
-            code: formData.get("code"),
-            items: this.packageItems(),
-            orderTotal: this.orderTotal.toFixed(2),
-            shipping: this.shipping,
-            tax: this.tax.toFixed(2),
-        };
+            const order = {
+                orderDate: new Date().toISOString(),
+                fname: formData.get("fname"),
+                lname: formData.get("lname"),
+                street: formData.get("street"),
+                city: formData.get("city"),
+                state: formData.get("state"),
+                zip: formData.get("zip"),
+                cardNumber: formData.get("cardNumber"),
+                expiration: formData.get("expiration"),
+                code: formData.get("code"),
+                items: this.packageItems(),
+                orderTotal: this.orderTotal.toFixed(2),
+                shipping: this.shipping,
+                tax: this.tax.toFixed(2),
+            };
 
-        const externalServices = new ExternalServices("tents");
+            const externalServices = new ExternalServices("tents");
 
-        return await externalServices.checkout(order);
+            return await externalServices.checkout(order);
+
+        } catch (err) {
+            console.error("Checkout error:", err);
+            throw err;
+        }
     }
 }

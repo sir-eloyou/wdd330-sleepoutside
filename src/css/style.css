@@ -90,7 +90,7 @@ p {
   margin-top: -1.3em;
 }
 
-.logo--square > div {
+.logo--square>div {
   margin-top: -1.7em;
 }
 
@@ -287,4 +287,34 @@ button {
 footer {
   font-size: var(--small-font);
   padding: 1em;
+}
+
+/* Alert message styling */
+.alert {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #ffe5e5;
+  border: 1px solid #cc0000;
+  border-radius: 5px;
+  color: #990000;
+}
+
+.alert p {
+  margin: 0;
+  padding: 0;
+}
+
+.alert button {
+  border: none;
+  background: transparent;
+  color: #990000;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0;
+  padding: 0.2em 0.5em;
 }

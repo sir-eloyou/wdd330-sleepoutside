@@ -1,4 +1,5 @@
 import CheckoutProcess from "./CheckoutProcess.mjs";
+import { alertMessage } from "./utils.mjs";
 
 const checkout = new CheckoutProcess("so-cart", ".order-summary");
 
@@ -20,18 +21,18 @@ form.addEventListener("submit", async (event) => {
 
     // Send the order to the backend
     try {
-        const response = await checkout.checkout(form);
+        await checkout.checkout(form);
 
-        alert(`Order successfully placed! Your Order ID is ${response.orderId}`);
-
-        // Clear the shopping cart
+        // Clear the shopping cart after successful checkout
         localStorage.removeItem("so-cart");
 
-        // Return to the home page
-        window.location.href = "/index.html";
+        // Redirect to the success page
+        window.location.href = "./success.html";
 
     } catch (error) {
         console.error("Checkout error:", error);
-        alert("Sorry, there was a problem placing your order. Please try again.");
+
+        // Display an error message inside the page
+        alertMessage("Sorry, there was a problem placing your order. Please try again.");
     }
 });
